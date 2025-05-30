@@ -1,0 +1,245 @@
+/* Paleta de colores */
+:root {
+    --naranja: #FF7043;
+    /* Naranja (durazno) */
+    --gris-claro: #F1F1F1;
+    --gris-oscuro: #333333;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+}
+
+/* Tipografía - Usando Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Body - Fondo general y color de texto */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--gris-claro);
+    color: var(--gris-oscuro);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to bottom, #333333, #f1f1f1) !important;
+    /* Degradé de grises */
+    color: #ffffff !important;
+    /* Texto blanco */
+    padding: 80px 0;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Animación FadeIn para la hero */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animación de deslizamiento (fadeInUp) */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de botones (hover) */
+.hero .btn {
+    background-color: var(--blanco);
+    color: var(--naranja);
+    padding: 10px 30px;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.hero .btn:hover {
+    background-color: var(--gris-oscuro);
+    color: var(--blanco);
+    transform: scale(1.05);
+    /* Efecto de escala */
+}
+
+/* Sección de Introducción */
+.intro {
+    padding: 60px 20px;
+    text-align: center;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.intro h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--gris-oscuro);
+}
+
+.intro p {
+    font-size: 18px;
+    color: var(--gris-oscuro);
+}
+
+/* Programas - Animaciones de las tarjetas */
+.programas {
+    background-color: var(--gris-claro);
+    padding: 60px 20px;
+}
+
+.programas h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--gris-oscuro);
+}
+
+/* Tarjetas de Programas */
+.card {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    background-color: var(--blanco);
+    animation: fadeInUp 1.5s ease-in-out;
+    /* Animación al aparecer */
+    border-radius: 10px;
+    /* Bordes redondeados */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    /* Elevación al pasar el mouse */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    /* Sombra más intensa */
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-title {
+    font-size: 24px;
+    color: var(--naranja);
+    transition: color 0.3s ease;
+}
+
+.card-text {
+    font-size: 16px;
+    color: var(--gris-oscuro);
+}
+
+.card .btn {
+    background-color: var(--naranja);
+    color: var(--blanco);
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+}
+
+.card .btn:hover {
+    background-color: var(--gris-oscuro);
+    transform: scale(1.1);
+    /* Efecto de hover en los botones */
+}
+
+/* Footer */
+footer {
+    background-color: var(--gris-oscuro);
+    color: var(--blanco);
+    padding: 20px 0;
+    text-align: center;
+    animation: fadeInUp 2s ease-in-out;
+    border-radius: 10px 10px 0 0;
+    /* Bordes redondeados en el footer */
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--naranja);
+    /* Color de hover en enlaces */
+}
+
+/* Animación de deslizamiento para el Footer */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header - Animación y hover en las opciones */
+header nav ul li a {
+    color: var(--gris-oscuro);
+    font-weight: bold;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover - Cambios más suaves y sin mover el contenido */
+header nav ul li a:hover {
+    background-color: var(--naranja);
+    color: var(--negro);
+    transform: scale(1.05);
+    /* Escalado suave */
+}
+
+/* Diseño Responsivo - Media Queries */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+        /* Reducir tamaño de fuente en móviles */
+    }
+
+    .hero p {
+        font-size: 18px;
+        /* Reducir tamaño de párrafo en móviles */
+    }
+
+    .programas h2 {
+        font-size: 28px;
+        /* Reducir tamaño de título en móviles */
+    }
+
+    .card {
+        margin-bottom: 20px;
+        /* Más espacio entre tarjetas en móviles */
+    }
+
+    .card-body {
+        padding: 20px;
+        /* Reducir el padding de las tarjetas */
+    }
+
+    .btn {
+        font-size: 14px;
+        /* Ajustar tamaño del botón */
+    }
+}
