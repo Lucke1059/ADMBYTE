@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ADMbyte – Programas y servicios." />
+    <title>ADMbyte – Programas</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- AOS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <!-- Tus estilos -->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+
+    <!-- Lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div id="progress-bar"></div>
+
+    <!-- Header dinámico -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Programas -->
+    <section class="programas-hero text-center text-white d-flex align-items-center position-relative">
+        <div class="container" data-aos="fade-down">
+            <h1 class="display-5 fw-bold">Nuestros Programas</h1>
+            <p class="lead">Escoge la solución perfecta para tu negocio</p>
+        </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="program-filter bg-white py-3 border-bottom">
+        <div class="container">
+            <ul class="nav nav-pills justify-content-center" id="programFilter">
+                <li class="nav-item"><a class="nav-link active" data-filter="all" href="#">Todos</a></li>
+                <li class="nav-item"><a class="nav-link" data-filter="punto" href="#">PuntoADM</a></li>
+                <li class="nav-item"><a class="nav-link" data-filter="vet" href="#">VetADM</a></li>
+                <li class="nav-item"><a class="nav-link" data-filter="tur" href="#">TurADM</a></li>
+                <li class="nav-item"><a class="nav-link" data-filter="web" href="#">Web a Medida</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Vista resumen (Todos) -->
+    <section id="summaryView" class="program-list py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                <!-- PuntoADM -->
+                <div class="col" data-aos="fade-up">
+                    <div class="program-card style-v2 text-center p-4">
+                        <div class="lottie-icon" data-animation="hover-star.json"></div>
+                        <img src="../assets/images/PuntoADM/Logo - PuntoADM.png" alt="PuntoADM"
+                            class="summary-icon mb-2" />
+                        <h5>PuntoADM</h5>
+                        <p class="small">ERP modular para pymes: contabilidad, stock y ventas.</p>
+                    </div>
+                </div>
+                <!-- VetADM -->
+                <div class="col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="program-card style-v2 tilt vet p-4">
+                        <div class="lottie-icon" data-animation="hover-star.json"></div>
+                        <img src="../assets/images/VetADM/Logo - VetADM.png" alt="VetADM" class="summary-icon mb-2" />
+                        <h5>VetADM</h5>
+                        <p class="small">Gestión completa para clínicas veterinarias.</p>
+                    </div>
+                </div>
+                <!-- TurADM -->
+                <div class="col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="program-card style-v2 tilt tur p-4">
+                        <div class="lottie-icon" data-animation="hover-star.json"></div>
+                        <img src="../assets/images/TurADM/Logo - TurADM.png" alt="TurADM" class="summary-icon mb-2" />
+                        <h5>TurADM</h5>
+                        <p class="small">Reservas y paquetes para agencias de viajes.</p>
+                    </div>
+                </div>
+                <!-- Web a Medida -->
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <div class="program-card style-v2 tilt p-4">
+                        <div class="lottie-icon" data-animation="hover-star.json"></div>
+                        <img src="../assets/images/WebPersonalizada/Logo-Web.png" alt="Web a Medida"
+                            class="summary-icon mb-2" />
+                        <h5>Web a Medida</h5>
+                        <p class="small">Tiendas online, blogs y landing pages responsive.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vista detallada (filtrado) -->
+    <section id="detailedView" class="program-list py-5 bg-light" style="display: none">
+        <div class="container">
+            <div class="row g-4">
+                <!-- PuntoADM Detalle -->
+                <div class="col-md-6" data-aos="fade-up" data-aos-duration="800" data-category="punto">
+                    <div class="program-card style-v2 tilt p-4">
+                        <div class="lottie-icon" data-animation="hover-star.json"></div>
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="../assets/images/PuntoADM/Logo - PuntoADM.png" alt="PuntoADM"
+                                class="program-icon me-3" />
+                            <h3 class="mb-0">PuntoADM</h3>
+                        </div>
+                        <div id="carouselPunto" class="carousel slide mb-3" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="../assets/images/PuntoADM/PuntoADM - Imagenes Programa/1.png"
+                                        class="glightbox" data-gallery="puntoadm">
+                                        <img src="../assets/images/PuntoADM/PuntoADM - Imagenes Programa/1.png"
+                                            class="d-block w-100" alt="PuntoADM captura 1" />
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="../assets/images/PuntoADM/PuntoADM - Imagenes Programa/2.png"
+                                        class="glightbox" data-gallery="puntoadm">
+                                        <img src="../assets/images/PuntoADM/PuntoADM - Imagenes Programa/2.png"
+                                            class="d-block w-100" alt="PuntoADM captura 2" />
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPunto"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselPunto"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                        <p>
+                            PuntoADM es nuestro ERP modular que te permite llevar la contabilidad, stock y ventas
+                            de manera centralizada. Ideal para pymes que buscan eficiencia y control.
+                        </p>
+                        <a href="../assets/images/PuntoADM/Flyer - PuntoADM.png" target="_blank"
+                            class="btn btn-outline-primary mt-2">
+                            📄 Descargar Flyer
+                        </a>
+                    </div>
+                </div>
+
+                <!-- VetADM Detalle -->
+                <div class="col-md-6" data-aos="fade-up" data-aos-duration="1000" data-category="vet">
+                    <div class="program-card style-v2 tilt vet p-4">
+                        <div class="lottie-icon" data-animation="hover-star.json"></div>
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="../assets/images/VetADM/Logo - VetADM.png" alt="VetADM"
+                                class="program-icon me-3" />
+                            <h3 class="mb-0">VetADM</h3>
+                        </div>
+                        <div id="carouselVet" class="carousel slide mb-3" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="../assets/images/VetADM/VetADM - Imagenes Programa/1.png" class="glightbox"
+                                        data-gallery="vetadm">
+                                        <img src="../assets/images/VetADM/VetADM - Imagenes Programa/1.png"
+                                            class="d-block w-100" alt="VetADM captura 1" />
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="../assets/images/VetADM/VetADM - Imagenes Programa/2.png" class="glightbox"
+                                        data-gallery="vetadm">
+                                        <img src="../assets/images/VetADM/VetADM - Imagenes Programa/2.png"
+                                            class="d-block w-100" alt="VetADM captura 2" />
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselVet"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselVet"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                        <p>
+                            VetADM está diseñado para clínicas veterinarias: agenda de citas, historia clínica y
+                            facturación en un sistema intuitivo.
+                        </p>
+                        <a href="../assets/images/VetADM/Flyer - VetADM.png" target="_blank"
+                            class="btn btn-outline-primary mt-2">
+                            📄 Descargar Flyer
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TurADM Detalle -->
+                <div class="col-md-6" data-aos="fade-up" data-aos-duration="1200" data-category="tur">
+                    <div class="program-card style-v2 tilt tur p-4">
+                        <div class="lottie-icon" data-animation="hover-star.json"></div>
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="../assets/images/TurADM/Logo - TurADM.png" alt="TurADM"
+                                class="program-icon me-3" />
+                            <h3 class="mb-0">TurADM</h3>
+                        </div>
+                        <div id="carouselTur" class="carousel slide mb-3" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="../assets/images/TurADM/TurADM - Imagenes Programa/1.png" class="glightbox"
+                                        data-gallery="turadm">
+                                        <img src="../assets/images/TurADM/TurADM - Imagenes Programa/1.png"
+                                            class="d-block w-100" alt="TurADM captura 1" />
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="../assets/images/TurADM/TurADM - Imagenes Programa/2.png" class="glightbox"
+                                        data-gallery="turadm">
+                                        <img src="../assets/images/TurADM/TurADM - Imagenes Programa/2.png"
+                                            class="d-block w-100" alt="TurADM captura 2" />
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTur"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselTur"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                        <p>
+                            TurADM te ayuda a gestionar agencias de viajes con módulos de reservas y generación de
+                            itinerarios automáticos.
+                        </p>
+                        <a href="../assets/images/TurADM/Flyer - TurADM.png" target="_blank"
+                            class="btn btn-outline-primary mt-2">
+                            📄 Descargar Flyer
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Web a Medida Detalle -->
+                <div class="col-md-6" data-aos="fade-up" data-aos-duration="1400" data-category="web">
+                    <div class="program-card style-v2 tilt p-4">
+                        <div class="lottie-icon" data-animation="hover-star.json"></div>
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="../assets/images/WebPersonalizada/Logo-Web.png" alt="Web a Medida"
+                                class="program-icon me-3" />
+                            <h3 class="mb-0">Web a Medida</h3>
+                        </div>
+                        <div id="carouselWeb" class="carousel slide mb-3" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="../assets/images/WebPersonalizada/1.png" class="glightbox"
+                                        data-gallery="web">
+                                        <img src="../assets/images/WebPersonalizada/1.png" class="d-block w-100"
+                                            alt="Web personalizada 1" />
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="../assets/images/WebPersonalizada/2.png" class="glightbox"
+                                        data-gallery="web">
+                                        <img src="../assets/images/WebPersonalizada/2.png" class="d-block w-100"
+                                            alt="Web personalizada 2" />
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselWeb"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselWeb"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                        <p>
+                            Diseñamos y desarrollamos tu sitio web, tienda online o blog con SEO básico integrado
+                            y diseño responsive.
+                        </p>
+                        <a href="../assets/images/WebPersonalizada/Flyer-web.png" target="_blank"
+                            class="btn btn-outline-primary mt-2">
+                            📄 Descargar Flyer
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volver al Inicio -->
+    <div class="text-center py-4">
+        <a href="/index.html" class="back-btn">← Volver al Inicio</a>
+    </div>
+
+    <!-- CTA flotante -->
+    <div class="cta-flotante">
+        <a href="https://wa.me/5493482408026" target="_blank" class="btn btn-whatsapp btn-lg">
+            <i class="bi bi-whatsapp me-2"></i> WhatsApp
+        </a>
+    </div>
+
+    <!-- Footer dinámico -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.3/dist/vanilla-tilt.min.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+</body>
+
+</html>

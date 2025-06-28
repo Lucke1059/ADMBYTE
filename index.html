@@ -2,101 +2,177 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ADMbyte - Soluciones digitales para tu negocio.">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ADMbyte - Soluciones Digitales para tu Negocio" />
     <title>ADMbyte - Inicio</title>
+
+    <!-- Lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+
+    <!-- GLightbox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous">
+        crossorigin="anonymous" />
 
-    <!-- Popper.js (para Bootstrap) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        crossorigin="anonymous"></script>
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-        crossorigin="anonymous"></script>
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-    <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <!-- tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
+    <!-- VanillaTilt -->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.3/dist/vanilla-tilt.min.js"></script>
 </head>
 
 <body>
 
-    <!-- Incluir el Header -->
+    <!-- Header dinámico -->
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section -->
-    <section class="hero bg-primary text-white text-center py-5">
+    <!-- Hero con Particles, Typed y Parallax -->
+    <section class="hero position-relative overflow-hidden">
+        <div id="particles-js" class="position-absolute w-100 h-100 top-0 start-0"></div>
+        <div class="container position-relative text-center text-white py-5" data-aos="fade-down">
+            <h1 class="display-4 fw-bold">ADMbyte</h1>
+            <h2 class="lead mb-4"><span id="typed"></span></h2>
+            <a href="#intro-section" class="btn btn-flyer btn-lg">¡Descubre más!</a>
+        </div>
+        <a href="#intro-section" class="scroll-down text-white">
+            <i class="bi bi-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- Intro -->
+    <section id="intro-section" class="intro py-5">
+        <div class="container text-center" data-aos="fade-up">
+            <h2>¿Quiénes somos?</h2>
+            <p class="lead">
+                En ADMbyte transformamos ideas en soluciones digitales: software, sitios web y más.
+                ¡Impulsa tu negocio con tecnología a medida!
+            </p>
+        </div>
+    </section>
+
+    <!-- Estadísticas con Contadores -->
+    <section id="stats" class="estadisticas text-center py-5">
         <div class="container">
-            <h1 class="display-4">Soluciones Digitales para tu Negocio</h1>
-            <p class="lead">Transformamos ideas en tecnología, desde software hasta sitios web personalizados.</p>
-            <a href="pages/programas.html" class="btn btn-light btn-lg">Ver Programas</a>
-        </div>
-    </section>
-
-    <!-- Sección de Introducción -->
-    <section class="intro py-5">
-        <div class="container text-center">
-            <h2 class="mb-4">¿Quiénes somos?</h2>
-            <p class="lead">En ADMbyte, ofrecemos soluciones digitales innovadoras que impulsan tu negocio. Con
-                experiencia en software, desarrollo web y más, estamos listos para ayudarte a llevar tu idea a la
-                realidad.</p>
-        </div>
-    </section>
-
-    <!-- Destacar los Programas -->
-    <section class="programas bg-light py-5">
-        <div class="container text-center">
-            <h2 class="mb-4">Nuestros Programas</h2>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">PuntoADM</h5>
-                            <p class="card-text">Un sistema de gestión para tu negocio.</p>
-                            <a href="pages/programas.html" class="btn btn-primary">Más detalles</a>
-                        </div>
-                    </div>
+            <div class="row g-4">
+                <div class="col-6 col-md-3" data-aos="fade-up">
+                    <h3><span class="counter" data-target="50">0</span>+</h3>
+                    <p>Clientes</p>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">VetADM</h5>
-                            <p class="card-text">Soluciones para clínicas veterinarias.</p>
-                            <a href="pages/programas.html" class="btn btn-primary">Más detalles</a>
-                        </div>
-                    </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <h3><span class="counter" data-target="30">0</span>+</h3>
+                    <p>Proyectos</p>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">TurADM</h5>
-                            <p class="card-text">Herramientas para la gestión de agencias de viajes.</p>
-                            <a href="pages/programas.html" class="btn btn-primary">Más detalles</a>
-                        </div>
-                    </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <h3><span class="counter" data-target="24">0</span>/7</h3>
+                    <p>Soporte</p>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Creación de sitios web personalizados</h5>
-                            <p class="card-text">Desarrollamos sitios web adaptados a tus necesidades, desde tiendas
-                                online hasta blogs.</p>
-                            <a href="pages/programas.html" class="btn btn-primary">Más detalles</a>
-                        </div>
-                    </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="600">
+                    <h3><span class="counter" data-target="2">0</span>+</h3>
+                    <p>Años de experiencia</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Incluir el Footer -->
+    <!-- Programas (mini-preview) -->
+    <section class="programas py-5">
+        <div class="container">
+            <h2 class="programas-title text-center mb-5" data-aos="zoom-in">
+                🚀 Nuestros <span class="highlight">Programas</span>
+            </h2>
+            <div class="programas-grid">
+                <!-- PuntoADM -->
+                <div class="program-card tilt" data-aos="fade-up" data-aos-duration="800">
+                    <div class="program-img mb-3 text-center">
+                        <img src="assets/images/PuntoADM/Logo - PuntoADM.png" alt="PuntoADM">
+                    </div>
+                    <div class="program-info">
+                        <h3>PuntoADM</h3>
+                        <p>Sistema de gestión integral para tu negocio.</p>
+                        <a href="assets/images/PuntoADM/Flyer - PuntoADM.png" target="_blank" class="btn btn-flyer">📄
+                            Flyer</a>
+                    </div>
+                </div>
+                <!-- VetADM -->
+                <div class="program-card tilt" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="program-img mb-3 text-center">
+                        <img src="assets/images/VetADM/Logo - VetADM.png" alt="VetADM">
+                    </div>
+                    <div class="program-info">
+                        <h3>VetADM</h3>
+                        <p>Soluciones para clínicas veterinarias.</p>
+                        <a href="assets/images/VetADM/Flyer - VetADM.png" target="_blank" class="btn btn-flyer">📄
+                            Flyer</a>
+                    </div>
+                </div>
+                <!-- TurADM -->
+                <div class="program-card tilt" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="program-img mb-3 text-center">
+                        <img src="assets/images/TurADM/Logo - TurADM.png" alt="TurADM">
+                    </div>
+                    <div class="program-info">
+                        <h3>TurADM</h3>
+                        <p>Herramientas para agencias de viajes.</p>
+                        <a href="assets/images/TurADM/Flyer - TurADM.png" target="_blank" class="btn btn-flyer">📄
+                            Flyer</a>
+                    </div>
+                </div>
+                <!-- Web a Medida -->
+                <div class="program-card tilt" data-aos="fade-up" data-aos-duration="1400">
+                    <div class="program-img mb-3 text-center">
+                        <img src="assets/images/WebPersonalizada/Logo-Web.png" alt="Web a Medida">
+                    </div>
+                    <div class="program-info">
+                        <h3>Web a Medida</h3>
+                        <p>Tu e-commerce, blog o landing perfecta.</p>
+                        <a href="assets/images/WebPersonalizada/Flyer - Web a Medida.png" target="_blank"
+                            class="btn btn-flyer">📄 Flyer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="pages/programas.html" class="btn btn-flyer btn-lg px-5">Ver todos los Programas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA flotante -->
+    <div class="cta-flotante">
+        <a href="https://wa.me/5493482408026" target="_blank" class="btn btn-whatsapp btn-lg">
+            <i class="bi bi-whatsapp me-2"></i>WhatsApp
+        </a>
+    </div>
+
+    <!-- Footer dinámico -->
     <div id="footer-placeholder"></div>
 
-    <!-- Script JS -->
+    <!-- Bootstrap & Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <!-- Tu JS -->
     <script src="assets/js/scripts.js"></script>
 </body>
 

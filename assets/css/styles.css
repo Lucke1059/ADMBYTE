@@ -1,245 +1,1154 @@
-/* Paleta de colores */
-:root {
-    --naranja: #FF7043;
-    /* Naranja (durazno) */
-    --gris-claro: #F1F1F1;
-    --gris-oscuro: #333333;
-    --blanco: #FFFFFF;
-    --negro: #000000;
+/* ─── 1) RESET & BASE ─── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Tipografía - Usando Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+    /* 16px */
+}
 
-/* Body - Fondo general y color de texto */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--gris-claro);
-    color: var(--gris-oscuro);
+    background: #F1F1F1;
+    color: #333333;
+    line-height: 1.5;
+    margin: 0;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* Hero Section */
+body {
+    padding-top: 70px;
+    /* ajusta según la altura real de tu navbar */
+}
+
+.fixed-top {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1020;
+}
+
+/* ─── 2) VARIABLES ─── */
+:root {
+    --primary: #FF7043;
+    --dark-bg: #121212;
+    --light-bg: #F1F1F1;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --radius: 0.75rem;
+    --gap: 1rem;
+}
+
+/* ─── 3) NAVBAR ─── */
+/* Aplica fondo y blur a TODOS los navbar fijos */
+.navbar.fixed-top {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(8px);
+    transition: background 0.3s;
+}
+
+.navbar .nav-link {
+    color: var(--text-dark);
+    margin: 0 var(--gap);
+    transition: color 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: var(--primary);
+}
+
+/* ─── 4) HERO ─── */
 .hero {
-    background: linear-gradient(to bottom, #333333, #f1f1f1) !important;
-    /* Degradé de grises */
-    color: #ffffff !important;
-    /* Texto blanco */
-    padding: 80px 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary), var(--light-bg));
+    color: var(--text-light);
     text-align: center;
-    animation: fadeIn 1s ease-in-out;
+    position: relative;
 }
 
-/* Animación FadeIn para la hero */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: var(--gap);
 }
 
-/* Animación de deslizamiento (fadeInUp) */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.hero p {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    margin-bottom: 1.5rem;
 }
 
-/* Animación de botones (hover) */
 .hero .btn {
-    background-color: var(--blanco);
-    color: var(--naranja);
-    padding: 10px 30px;
-    border: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: all 0.3s ease-in-out;
-    border-radius: 5px;
+    background: var(--text-light);
+    color: var(--primary);
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: transform 0.3s, background 0.3s;
 }
 
 .hero .btn:hover {
-    background-color: var(--gris-oscuro);
-    color: var(--blanco);
     transform: scale(1.05);
-    /* Efecto de escala */
+    background: var(--dark-bg);
+    color: var(--text-light);
 }
 
-/* Sección de Introducción */
-.intro {
-    padding: 60px 20px;
+/* ─── 5) INTRO & ESTADÍSTICAS ─── */
+.intro,
+.estadisticas {
+    padding: 4rem var(--gap);
     text-align: center;
-    animation: fadeInUp 1s ease-in-out;
 }
 
-.intro h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: var(--gris-oscuro);
+.intro h2,
+.estadisticas h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
-.intro p {
-    font-size: 18px;
-    color: var(--gris-oscuro);
+.estadisticas .row>[class*="col-"] {
+    margin-bottom: var(--gap);
 }
 
-/* Programas - Animaciones de las tarjetas */
+.estadisticas h3 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+/* ─── 6) PROGRAMAS ─── */
 .programas {
-    background-color: var(--gris-claro);
-    padding: 60px 20px;
+    padding: 4rem var(--gap);
+    background: none;
+    /* hereda el fondo del body */
 }
 
-.programas h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
+.programas-title {
     text-align: center;
-    color: var(--gris-oscuro);
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 2rem;
+    position: relative;
 }
 
-/* Tarjetas de Programas */
-.card {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-    background-color: var(--blanco);
-    animation: fadeInUp 1.5s ease-in-out;
-    /* Animación al aparecer */
-    border-radius: 10px;
-    /* Bordes redondeados */
+.programas-title::after {
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.25rem;
+    background: var(--primary);
+    margin: 0.5rem auto 0;
+    border-radius: 0.125rem;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    /* Elevación al pasar el mouse */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    /* Sombra más intensa */
+.programas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--gap);
 }
 
-.card-body {
+/* ─── 7) CARD (glassmorphism) ─── */
+.program-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.program-card:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.program-img {
+    padding: var(--gap);
     text-align: center;
 }
 
-.card-title {
-    font-size: 24px;
-    color: var(--naranja);
-    transition: color 0.3s ease;
+.program-img img {
+    max-width: 80%;
+    height: auto;
+    border-radius: calc(var(--radius)/2);
+    transition: transform 0.3s;
 }
 
-.card-text {
-    font-size: 16px;
-    color: var(--gris-oscuro);
+.program-img img:hover {
+    transform: scale(1.05);
 }
 
-.card .btn {
-    background-color: var(--naranja);
-    color: var(--blanco);
-    font-weight: bold;
-    border: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border-radius: 5px;
+.program-info {
+    flex-grow: 1;
+    padding: var(--gap);
+    text-align: center;
 }
 
-.card .btn:hover {
-    background-color: var(--gris-oscuro);
+.program-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.program-info p {
+    margin-bottom: var(--gap);
+}
+
+/* ─── 8) BOTÓN FLYER ─── */
+.btn-flyer {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: var(--text-light);
+    border-radius: var(--radius);
+    font-weight: 500;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.btn-flyer:hover {
+    transform: scale(1.05);
+    background: darken(var(--primary), 10%);
+}
+
+/* ─── 9) BOTÓN VOLVER CENTRAL ─── */
+
+.back-btn:hover {
+    transform: scale(1.05);
+    background: darken(var(--primary), 10%);
+}
+
+/* ─── 10) CTA FLOTANTE ─── */
+.cta-flotante {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 2000;
+}
+
+.cta-flotante .btn {
+    background: var(--primary);
+    color: var(--text-light);
+    border-radius: var(--radius);
+    transition: transform 0.3s, background 0.3s;
+}
+
+.cta-flotante .btn:hover {
     transform: scale(1.1);
-    /* Efecto de hover en los botones */
+    background: var(--dark-bg);
 }
 
-/* Footer */
-footer {
-    background-color: var(--gris-oscuro);
-    color: var(--blanco);
-    padding: 20px 0;
-    text-align: center;
-    animation: fadeInUp 2s ease-in-out;
-    border-radius: 10px 10px 0 0;
-    /* Bordes redondeados en el footer */
-}
-
-footer p {
-    margin-bottom: 10px;
-}
-
-footer a {
-    color: var(--blanco);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: var(--naranja);
-    /* Color de hover en enlaces */
-}
-
-/* Animación de deslizamiento para el Footer */
-@keyframes fadeInUp {
-    0% {
+/* ─── 11) ANIMACIONES ─── */
+@keyframes fadeInDown {
+    from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(-2rem);
     }
 
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Header - Animación y hover en las opciones */
-header nav ul li a {
-    color: var(--gris-oscuro);
-    font-weight: bold;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Hover - Cambios más suaves y sin mover el contenido */
-header nav ul li a:hover {
-    background-color: var(--naranja);
-    color: var(--negro);
+/* ─── 12) RESPONSIVE ─── */
+@media (max-width:768px) {
+    .hero {
+        padding: 4rem 0;
+    }
+
+    .programas {
+        padding: 3rem var(--gap);
+    }
+
+    .programas-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ─── 13) DARK MODE ─── */
+body.dark-mode {
+    background: var(--dark-bg) !important;
+    color: var(--text-light) !important;
+}
+
+body.dark-mode .navbar {
+    background: rgba(28, 28, 28, 0.8) !important;
+}
+
+body.dark-mode .nav-link {
+    color: #ccc !important;
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(135deg, #1c1c1c, #2a2a2a) !important;
+}
+
+body.dark-mode .programas,
+body.dark-mode .intro,
+body.dark-mode .estadisticas,
+body.dark-mode footer {
+    background: var(--dark-bg) !important;
+}
+
+body.dark-mode .program-card {
+    background: rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .program-info h3,
+body.dark-mode .program-info p {
+    color: var(--text-light) !important;
+}
+
+body.dark-mode .btn-flyer {
+    background: var(--primary) !important;
+    color: #000 !important;
+}
+
+body.dark-mode .btn-flyer:hover {
+    background: #e65c36 !important;
+}
+
+body.dark-mode .cta-flotante .btn {
+    background: var(--primary) !important;
+    color: #000 !important;
+}
+
+body.dark-mode .back-btn {
+    background: #333333 !important;
+    color: #ffffff !important;
+}
+
+/* ─── 14) SOBRE NOSOTROS ─── */
+
+/* — Sección Hero — */
+.nosotros-hero {
+    min-height: 40vh;
+    background: linear-gradient(135deg, var(--primary), var(--secondary, #333333));
+    color: #ffffff;
+}
+
+.nosotros-hero .highlight {
+    color: var(--text-light);
+    position: relative;
+}
+
+.nosotros-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.nosotros-hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* — Contenedor principal — */
+.sobre-nosotros {
+    background: var(--light-bg);
+}
+
+.nosotros-card {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.nosotros-card p {
+    margin-bottom: 1.25rem;
+    text-align: justify;
+}
+
+.nosotros-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* — Lista de características — */
+.nosotros-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.nosotros-list li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: start;
+}
+
+.nosotros-list li::before {
+    content: "✔️";
+    margin-right: 0.5rem;
+    color: var(--primary);
+    margin-top: 0.15rem;
+}
+
+/* — Contacto final — */
+.nosotros-card .contacto {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+/* — Botón Volver al Inicio — */
+
+.back-btn:hover {
     transform: scale(1.05);
-    /* Escalado suave */
+    background: darken(var(--primary), 10%);
 }
 
-/* Diseño Responsivo - Media Queries */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 36px;
-        /* Reducir tamaño de fuente en móviles */
+/* — Dark Mode Overrides — */
+body.dark-mode .nosotros-hero {
+    background: linear-gradient(135deg, #1c1c1c, #2a2a2a) !important;
+}
+
+body.dark-mode .sobre-nosotros {
+    background: #1a1a1a !important;
+}
+
+body.dark-mode .nosotros-card {
+    background: rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .nosotros-card p,
+body.dark-mode .nosotros-card h3,
+body.dark-mode .nosotros-list li {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .back-btn,
+body.dark-mode .cta-flotante .btn {
+    background: var(--primary) !important;
+    color: #000000 !important;
+}
+
+/* — HERO PRO con máscara geométrica y textura */
+.nosotros-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary), var(--secondary, #333333));
+}
+
+.nosotros-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../assets/images/pattern.svg') center/cover;
+    opacity: 0.05;
+}
+
+.nosotros-hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.nosotros-hero p.lead {
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.85;
+}
+
+/* — TARJETA PRO con borde superior y sombra elevada */
+.nosotros-card {
+    border-top: 5px solid var(--primary);
+    box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nosotros-card:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 3rem 4rem rgba(0, 0, 0, 0.2);
+}
+
+/* — BULLETS PRO con side-border y hover */
+.nosotros-list.pro {
+    list-style: none;
+    padding: 0;
+}
+
+.nosotros-list.pro li {
+    position: relative;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    border-left: 6px solid var(--primary);
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.nosotros-list.pro li span {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.nosotros-list.pro li:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: var(--secondary, #333333);
+}
+
+/* — CONTACTO estilo pro */
+.nosotros-card .contacto {
+    font-weight: 600;
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* — BOTÓN VOLVER CENTRAL PRO */
+.back-btn {
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* — DARK MODE — ajustar bordes y fondos */
+body.dark-mode .nosotros-hero::before {
+    opacity: 0.1;
+}
+
+body.dark-mode .nosotros-card {
+    background: rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode .nosotros-list.pro li {
+    background: rgba(0, 0, 0, 0.3);
+    border-left-color: var(--primary);
+}
+
+/* Mejorar estilo de la lista de características */
+.nosotros-list.pro {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    /* separa la lista del resto del contenido */
+}
+
+.nosotros-list.pro li {
+    display: flex;
+    align-items: flex-start;
+    /* alinea icono y texto al tope */
+    gap: 1rem;
+    /* espacio entre icono y texto */
+    padding: 1rem 1.5rem;
+    /* espacio interior generoso */
+    margin-bottom: 1rem;
+    /* separación entre ítems */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    border-left: 6px solid var(--primary);
+    border-radius: 0.5rem;
+    transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.nosotros-list.pro li:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: var(--secondary, #333333);
+    transform: translateY(-2px);
+}
+
+/* Controlar el icono (antes usábamos ::before, ahora un span o img) */
+.nosotros-list.pro li::before {
+    content: "✔️";
+    /* o reemplaza por icono SVG */
+    flex: 0 0 auto;
+    font-size: 1.25rem;
+    margin-top: 0.15rem;
+    color: var(--primary);
+}
+
+/* Mejorar la tipografía del término destacado */
+.nosotros-list.pro li span {
+    font-weight: 600;
+    color: var(--primary);
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Asegúrate de separar título y lista */
+.sobre-nosotros h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+/* ─── CONTACTO ─── */
+
+/* ─── Contacto Hero ─── */
+.contacto-hero {
+    min-height: 40vh;
+    background: linear-gradient(135deg, var(--primary), var(--light-bg));
+    color: var(--text-light);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contacto-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../assets/images/pattern.svg') center/cover;
+    opacity: 0.05;
+}
+
+.contacto-hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.contacto-hero p.lead {
+    max-width: 600px;
+    margin: 1rem auto 0;
+    opacity: 0.85;
+}
+
+/* ─── Formulario ─── */
+.contacto-section {
+    background: var(--light-bg);
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    padding: 2rem;
+    max-width: 600px;
+}
+
+.contact-card .form-label {
+    font-weight: 500;
+}
+
+.contact-card .form-control {
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.75rem;
+    transition: backdrop-filter 0.3s, box-shadow 0.3s;
+}
+
+.contact-card .form-control:focus {
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 0 0.2rem var(--primary);
+}
+
+.btn-flyer {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-flyer:hover {
+    background: #e65c36;
+}
+
+/* ─── Validación Bootstrap ─── */
+.was-validated .form-control:invalid {
+    border-color: #dc3545;
+}
+
+.was-validated .form-control:valid {
+    border-color: #28a745;
+}
+
+/* ─── CTA Volver ─── */
+.cta-flotante {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 2000;
+}
+
+.cta-flotante .btn {
+    background: var(--primary);
+    color: #fff;
+    border-radius: var(--radius);
+    transition: transform 0.3s;
+}
+
+.cta-flotante .btn:hover {
+    transform: scale(1.1);
+    background: var(--dark-bg);
+}
+
+/* ─── Dark Mode Overrides ─── */
+body.dark-mode .contacto-hero {
+    background: linear-gradient(135deg, #1c1c1c, #2a2a2a) !important;
+}
+
+body.dark-mode .contacto-section,
+body.dark-mode .contact-card {
+    background: rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode .contact-card .form-control {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #e0e0e0;
+}
+
+body.dark-mode .contact-card .form-control:focus {
+    box-shadow: 0 0 0 0.2rem var(--primary) !important;
+}
+
+body.dark-mode .btn-flyer {
+    background: var(--primary) !important;
+    color: #000 !important;
+}
+
+body.dark-mode .cta-flotante .btn {
+    background: var(--primary) !important;
+    color: #000 !important;
+}
+
+/* Botón WhatsApp igual que btn-flyer */
+.btn-whatsapp {
+    background: #25D366 !important;
+    /* verde WhatsApp */
+    color: #ffffff !important;
+    border-radius: var(--radius) !important;
+    transition: transform 0.3s, background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-whatsapp:hover {
+    background: #1ebe57 !important;
+    /* un verde ligeramente más oscuro */
+    transform: scale(1.05) !important;
+}
+
+/* Espacio entre SVG y texto */
+.btn-whatsapp svg {
+    flex-shrink: 0;
+}
+
+/* ─── Hero y Contacto: fondo liso o degradado solo naranjas ─── */
+.hero,
+.contacto-hero {
+    background: linear-gradient(to right,
+            var(--primary) 0%,
+            #FF8A65 100%) !important;
+    /* eliminamos cualquier background-image */
+}
+
+/* Quitamos pseudo‐elementos si los hubiera */
+.hero::before,
+.contacto-hero::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* ─── Header: logo + texto ─── */
+.navbar-brand .logo {
+    height: 40px;
+    /* Ajusta altura a tu gusto */
+    width: auto;
+    transition: filter 0.3s;
+}
+
+.navbar-brand .brand-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: color 0.3s;
+}
+
+/* Dark mode: invertir color del texto y, si quieres, del logo */
+body.dark-mode .brand-text {
+    color: var(--text-light);
+}
+
+/* —– Back-btn idéntico a btn-flyer —– */
+.back-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    /* mismo padding que .btn-flyer */
+    background: var(--primary);
+    /* mismo fondo */
+    color: var(--text-light);
+    /* mismo color de texto */
+    border-radius: var(--radius);
+    /* misma curvatura */
+    font-weight: 500;
+    /* mismo grosor */
+    text-decoration: none !important;
+    /* quitar subrayado */
+    transition: transform 0.3s, background 0.3s;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+    /* misma animación */
+    background: #e65c36;
+    /* igual que btn-flyer:hover */
+    text-decoration: none !important;
+}
+
+/* ─── Global Page Entry Animation (sin transform) ─── */
+body {
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+}
+
+body.page-loaded {
+    opacity: 1;
+}
+
+/* ─── Parallax y particles ─── */
+.hero {
+    background: url('../assets/images/hero-bg.jpg') center/cover fixed no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#particles-js {
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.hero .container {
+    z-index: 2;
+}
+
+/* ─── Typed text ─── */
+.lead span {
+    color: var(--text-light);
+    border-right: 2px solid var(--text-light);
+}
+
+/* ─── Tilt en cards ─── */
+.tilt {
+    will-change: transform;
+    transition: transform 0.2s;
+}
+
+/* ─── Scroll indicator ─── */
+.scroll-down {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    animation: bounce 2s infinite;
+    z-index: 2;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translate(-50%, 0);
     }
 
-    .hero p {
-        font-size: 18px;
-        /* Reducir tamaño de párrafo en móviles */
+    40% {
+        transform: translate(-50%, 15px);
     }
 
-    .programas h2 {
-        font-size: 28px;
-        /* Reducir tamaño de título en móviles */
+    60% {
+        transform: translate(-50%, 8px);
+    }
+}
+
+/* ─── Hero Programas ─── */
+.programas-hero {
+    height: 40vh;
+    background: var(--primary);
+}
+
+.programas-hero .lead {
+    opacity: 0.9;
+}
+
+/* ─── Filtrado (pill active) ─── */
+.program-filter .nav-pills .nav-link {
+    color: var(--text-dark);
+    border-radius: 2rem;
+    margin: 0 0.5rem;
+    transition: background 0.3s, color 0.3s;
+}
+
+.program-filter .nav-pills .nav-link.active {
+    background: var(--primary);
+    color: var(--text-light);
+}
+
+/* ─── Cards estilo v2 ─── */
+.program-card.style-v2 {
+    background: #fff;
+    border-left: 4px solid var(--primary);
+    border-radius: var(--radius);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.program-card.style-v2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.program-icon {
+    width: 48px;
+    height: auto;
+}
+
+/* ─── Sección programas fondo ─── */
+.program-list {
+    background: var(--light-bg);
+}
+
+/* ─── Responsive tweaks ─── */
+@media (max-width: 767px) {
+    .programas-hero {
+        height: 30vh;
     }
 
-    .card {
-        margin-bottom: 20px;
-        /* Más espacio entre tarjetas en móviles */
+    .program-card.style-v2 {
+        padding: 2rem;
+    }
+}
+
+/* ─── 1) Degradado animado en el Hero ─── */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
     }
 
-    .card-body {
-        padding: 20px;
-        /* Reducir el padding de las tarjetas */
+    50% {
+        background-position: 100% 50%;
     }
 
-    .btn {
-        font-size: 14px;
-        /* Ajustar tamaño del botón */
+    100% {
+        background-position: 0% 50%;
     }
+}
+
+.programas-hero {
+    background: linear-gradient(270deg, var(--primary), #FF8A65, var(--primary));
+    background-size: 600% 600%;
+    animation: gradientShift 12s ease infinite;
+}
+
+/* ─── 2) Efecto “shine” en botones outline-primary ─── */
+.btn-outline-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-primary::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 50%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: rotate(25deg);
+    transition: all 0.7s ease-in-out;
+}
+
+.btn-outline-primary:hover::before {
+    left: 125%;
+}
+
+/* ─── 3) Barra de progreso ─── */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--primary);
+    width: 0%;
+    z-index: 2000;
+}
+
+/* Burbujas flotantes en background */
+.program-list {
+    position: relative;
+    overflow: hidden;
+}
+
+.program-list::before,
+.program-list::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: floatBubble 12s ease-in-out infinite;
+}
+
+.program-list::before {
+    width: 200px;
+    height: 200px;
+    background: var(--primary);
+    top: 10%;
+    left: 5%;
+}
+
+.program-list::after {
+    width: 150px;
+    height: 150px;
+    background: #FF8A65;
+    bottom: 15%;
+    right: 10%;
+}
+
+@keyframes floatBubble {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-50px) scale(1.1);
+    }
+}
+
+/* —— Dark Mode Programas —— */
+body.dark-mode .programas-hero {
+    background: linear-gradient(270deg, #2a2a2a, #444, #2a2a2a);
+}
+
+body.dark-mode .program-filter {
+    background: #1c1c1c !important;
+}
+
+body.dark-mode .program-filter .nav-pills .nav-link {
+    color: #ccc;
+}
+
+body.dark-mode .program-filter .nav-pills .nav-link.active {
+    background: var(--primary) !important;
+    color: #fff;
+}
+
+body.dark-mode .program-list {
+    background: #121212 !important;
+}
+
+body.dark-mode .program-card.style-v2 {
+    background: #1e1e1e !important;
+    border-left-color: var(--primary) !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .program-card.style-v2 h3,
+body.dark-mode .program-card.style-v2 p,
+body.dark-mode .program-card.style-v2 h5,
+body.dark-mode .program-card.style-v2 .small {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .btn-outline-primary {
+    color: #fff !important;
+    border-color: #ccc !important;
+}
+
+body.dark-mode .btn-outline-primary:hover::before {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* — Mini-hero parallax en Sobre Nosotros — */
+.nosotros-hero {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+/* — Lottie micro-interactions — */
+.program-card {
+    position: relative;
+}
+
+.lottie-icon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+}
+
+/* — Lightbox: aseguramos que las imágenes abran bien */
+.glightbox img {
+    cursor: pointer;
+}
+
+/* opcional: un poco de transición a la tarjeta al hacer hover */
+.program-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+/* ─── Light-mode: forzar texto negro en la sección “Sobre Nosotros” ─── */
+body:not(.dark-mode) .nosotros-hero,
+body:not(.dark-mode) .nosotros-hero h1,
+body:not(.dark-mode) .nosotros-hero p,
+body:not(.dark-mode) .nosotros-hero .lead {
+    color: #333333 !important;
+}
+
+/* Además, si tienes texto en el contenedor principal */
+body:not(.dark-mode) .sobre-nosotros,
+body:not(.dark-mode) .sobre-nosotros h3,
+body:not(.dark-mode) .sobre-nosotros p,
+body:not(.dark-mode) .nosotros-list.pro li,
+body:not(.dark-mode) .nosotros-card .contacto {
+    color: #333333 !important;
+}
+
+/* Inputs y textarea en modo oscuro */
+body.dark-mode .contact-card .form-control {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #e0e0e0 !important;
+}
+
+/* Placeholder más legible */
+body.dark-mode .contact-card .form-control::placeholder {
+    color: rgba(224, 224, 224, 0.6) !important;
+}
+
+/* Labels en blanco */
+body.dark-mode .contact-card label {
+    color: #e0e0e0 !important;
 }

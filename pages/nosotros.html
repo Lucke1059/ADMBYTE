@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ADMbyte – Sobre Nosotros" />
+    <title>ADMbyte – Sobre Nosotros</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Tus estilos -->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+
+    <!-- Lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <!-- GLightbox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+</head>
+
+<body>
+    <!-- Header dinámico -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero con parallax -->
+    <section class="nosotros-hero d-flex align-items-center justify-content-center position-relative"
+        style="background: url('../assets/images/nosotros-bg.jpg') center/cover no-repeat;">
+        <div class="container text-center">
+            <h1 class="display-4 animate-fade" data-delay="200">Sobre Nosotros</h1>
+            <p class="lead animate-fade" data-delay="400">
+                Somos un equipo apasionado por la tecnología, comprometidos con tu éxito.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección principal -->
+    <section class="sobre-nosotros py-5 bg-light">
+        <div class="container">
+            <h3 class="text-center mb-4 animate-fade" data-delay="600">Nuestro Enfoque</h3>
+            <div class="nosotros-card mx-auto animate-fade" style="max-width: 800px;" data-delay="800">
+                <h3 class="text-center mb-3 animate-fade" data-delay="1000">
+                    ¿Por qué elegirnos?
+                </h3>
+                <p class="animate-fade" data-delay="1200">
+                    En ADMbyte fusionamos creatividad y experiencia técnica para entregar
+                    soluciones digitales que transforman negocios.
+                </p>
+                <ul class="nosotros-list pro">
+                    <li class="animate-fade" data-delay="1400">
+                        <span>Innovación</span> Buscamos siempre lo último en tecnología.
+                    </li>
+                    <li class="animate-fade" data-delay="1600">
+                        <span>Calidad</span> Entregamos productos robustos y confiables.
+                    </li>
+                    <li class="animate-fade" data-delay="1800">
+                        <span>Soporte</span> Acompañamos a nuestros clientes en cada paso.
+                    </li>
+                </ul>
+                <div class="contacto text-center mt-3 animate-fade" data-delay="2000">
+                    ¿Listo para comenzar? Contáctanos y trabajemos juntos.
+                </div>
+                <div class="text-center mt-4 animate-fade" data-delay="2200">
+                    <a href="/index.html" class="back-btn">← Volver al Inicio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA flotante -->
+    <div class="cta-flotante">
+        <a href="https://wa.me/5493482408026" target="_blank" class="btn btn-whatsapp btn-lg">
+            <i class="bi bi-whatsapp me-2"></i> WhatsApp
+        </a>
+    </div>
+
+    <!-- Footer dinámico -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+    <script src="../assets/js/scripts.js"></script>
+
+    <!-- Fade-in JS-only para Sobre Nosotros -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.animate-fade').forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                const delay = parseInt(el.getAttribute('data-delay')) || 0;
+                setTimeout(() => {
+                    el.style.transition = 'opacity .6s ease-out, transform .6s ease-out';
+                    el.style.opacity = 1;
+                    el.style.transform = 'translateY(0)';
+                }, delay);
+            });
+        });
+    </script>
+</body>
+
+</html>
